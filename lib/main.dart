@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const DefaultPage(title: 'Flutter Demo Home Page'),
+      home: const DefaultPage(title: '앱 이름'),
     );
   }
 }
