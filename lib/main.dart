@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-
+import 'screens/home_screen.dart';
+import 'screens/market_screen.dart';
+import 'screens/my_act_screen.dart';
+import 'screens/settings_screen.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -15,19 +18,19 @@ class MyApp extends StatelessWidget {
 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const DefaultPage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+class DefaultPage extends StatefulWidget {
+  const DefaultPage({super.key, required this.title});
   final String title;
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<DefaultPage> createState() => _DefaultPageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateMixin {
+class _DefaultPageState extends State<DefaultPage> with SingleTickerProviderStateMixin {
   late TabController _tabController;
   static const List<BottomNavigationBarItem> _navItems = [
     BottomNavigationBarItem(
@@ -74,9 +77,14 @@ class _MyHomePageState extends State<MyHomePage> with SingleTickerProviderStateM
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: TabBarView(children: [],
-
-
+      body: TabBarView(
+        children: [
+          HomeScreen(),
+          MyActScreen(),
+          MarketScreen(),
+          SettingsScreen(),
+        ],
+        controller: _tabController,
       ),
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
