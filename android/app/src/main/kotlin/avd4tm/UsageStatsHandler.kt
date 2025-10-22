@@ -1,4 +1,4 @@
-package com.example.avd4tm  // <-- 실제 패키지명으로 바꿀 것
+package avd4tm  // <-- 실제 패키지명으로 바꿀 것
 
 import android.app.usage.UsageStats
 import android.app.usage.UsageStatsManager
@@ -23,7 +23,7 @@ class MainActivity: FlutterActivity() {
         super.onCreate(savedInstanceState)
 
         // flutterEngine 이 null 일 수 있으므로 안전하게 접근 (여기선 embedding v2 가 기본)
-        MethodChannel(flutterEngine!!.dartExecutor.binaryMessenger, CHANNEL)
+        MethodChannel(flutterEngine?.dartExecutor?.binaryMessenger, CHANNEL)
             .setMethodCallHandler { call, result ->
                 when (call.method) {
                     // Flutter가 'getTodayUsage' 를 호출하면 아래 블록 실행
